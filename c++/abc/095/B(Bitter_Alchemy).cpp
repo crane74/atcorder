@@ -1,15 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
   int N, X;
   cin >> N >> X;
 
   vector<int> m(N);
   int sum = 0;
-  for (int i = 0; i < N; i++)
-  {
+  for (int i = 0; i < N; i++) {
     cin >> m.at(i);
     sum += m.at(i);
   }

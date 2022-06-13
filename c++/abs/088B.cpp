@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
   int N;
   cin >> N;
 
   vector<int> a(N);
-  for (int i = 0; i < N; i++)
-  {
+  for (int i = 0; i < N; i++) {
     cin >> a.at(i);
   }
 
@@ -17,14 +15,10 @@ int main()
   int Alice = 0;
   int Bob = 0;
 
-  for (int i = 0; i < N; i++)
-  {
-    if (i == 0 || i % 2 == 0)
-    {
+  for (int i = 0; i < N; i++) {
+    if (i == 0 || i % 2 == 0) {
       Alice += a.at(i);
-    }
-    else
-    {
+    } else {
       Bob += a.at(i);
     }
   }

@@ -1,18 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
   int N, A;
   cin >> N >> A;
 
   int ans = N % 500;
-  if (ans <= A)
-  {
+  if (ans <= A) {
     cout << "Yes" << endl;
-  }
-  else
-  {
+  } else {
     cout << "No" << endl;
   }
 }

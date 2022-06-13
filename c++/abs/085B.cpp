@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
   int N;
   cin >> N;
 
   vector<int> d(N + 1, -1);
-  for (int i = 0; i < N; i++)
-  {
+  for (int i = 0; i < N; i++) {
     cin >> d.at(i);
   }
 
@@ -16,10 +14,8 @@ int main()
 
   int counter = 0;
 
-  for (int i = 0; i < N; i++)
-  {
-    if (d.at(i) < d.at(i + 1))
-    {
+  for (int i = 0; i < N; i++) {
+    if (d.at(i) < d.at(i + 1)) {
       counter++;
     }
   }
