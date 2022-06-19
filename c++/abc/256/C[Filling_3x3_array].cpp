@@ -1,45 +1,26 @@
-
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 int main() {
-  vector<int> h(3), w(3);
-  for (int i = 0; i < 3; i++) {
-    cin >> h.at(i);
-  }
-  for (int i = 0; i < 3; i++) {
-    cin >> w.at(i);
-  }
+  int H[3], W[3], ans = 0;
 
-  int cnt = 0;
+  for (int i = 0; i < 3; i++) cin >> H[i];
+  for (int j = 0; j < 3; j++) cin >> W[j];
 
-  vector<vector<int>> num(3, vector<int>(3));
-  for (int i = 1; i <= 30; i++) {
-    for (int j = 1; j < 30; j++) {
-      for (int k = 1; k < 30; k++) {
-        for (int l = 1; l < 30; l++) {
-          num.at(0).at(0) = i;
-          num.at(1).at(0) = j;
-          num.at(2).at(0) = w.at(0) - (i + j);
-          num.at(0).at(1) = k;
-          num.at(1).at(1) = l;
-          num.at(2).at(1) = w.at(1) - (k + l);
-          num.at(0).at(2) = h.at(0) - (i + k);
-          num.at(1).at(2) = h.at(1) - (j + l);
-          num.at(2).at(2) = h.at(2) - (num.at(2).at(0) + num.at(2).at(1));
-
-          if (h.at(0) == num.at(0).at(0) + num.at(0).at(1) + num.at(0).at(2) &&
-              h.at(1) == num.at(1).at(0) + num.at(1).at(1) + num.at(1).at(2) &&
-              h.at(2) == num.at(2).at(0) + num.at(2).at(1) + num.at(2).at(2) &&
-              w.at(0) == num.at(0).at(0) + num.at(1).at(0) + num.at(2).at(0) &&
-              w.at(1) == num.at(0).at(1) + num.at(1).at(1) + num.at(2).at(1) &&
-              w.at(2) == num.at(0).at(2) + num.at(1).at(2) + num.at(2).at(2)) {
-            cnt++;
-          }
+  for (int a = 1; a <= 30; a++) {
+    for (int b = 1; b <= 30; b++) {
+      for (int d = 1; d <= 30; d++) {
+        for (int e = 1; e <= 30; e++) {
+          int c = H[0] - a - b;
+          int f = H[1] - d - e;
+          int g = W[0] - a - d;
+          int h = W[1] - b - e;
+          int i = W[2] - c - f;
+          if (min({c, f, g, h, i}) > 0 and g + h + i == H[2]) ans++;
         }
       }
     }
   }
-
-  cout << cnt << endl;
+  cout << ans << "\n";
 }
