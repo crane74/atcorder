@@ -30,5 +30,5 @@ int main() {
     }
   }
 
-  cout << max << endl;
+  cout << fixed << setprecision(6) << max << endl;
 }
