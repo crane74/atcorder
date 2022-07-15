@@ -1,6 +1,29 @@
 #include <bits/stdc++.h>
-using namespace std;
+
+// REP macro
+#define reps(i, a, n) for (ll i = (a); i < (ll)(n); ++i)
+#define rep(i, n) reps(i, 0, n)
+#define rrep(i, n) reps(i, 1, n + 1)
+#define repd(i, n) for (ll i = n - 1; i >= 0; i--)
+#define rrepd(i, n) for (ll i = n; i >= 1; i--)
+
+// define short
+#define pb push_back
+#define mp make_pair
+#define all(obj) (obj).begin(), (obj).end()
+#define rall(obj) (obj).rbegin(), (obj).rend()
+#define YesNo(bool)        \
+  if (bool) {              \
+    cout << "Yes" << endl; \
+  } else {                 \
+    cout << "No" << endl;  \
+  }
+
+// alias
+using ull = unsigned long long;
 using ll = long long;
+
+using namespace std;
 
 //解答プロセス
 //単純にマス目周囲８マスの中に#が何個あるかを数えるだけ
@@ -10,37 +33,24 @@ int main() {
   int H, W;
   cin >> H >> W;
 
-  vector<string> S(H);
-  for (int i = 0; i < H; i++) {
-    cin >> S[i];
-  }
+  string S[101];
+  rep(y, H) cin >> S[y];
 
-  for (int y = 0; y < W; y++) {
-    for (int x = 0; x < H; x++) {
-      //↓Segmentation fault
+  rep(y, H) {
+    rep(x, W) {
       if (S[y][x] == '.') {
-        int num = 0;
-
-        for (int dx = -1; dx <= 1; dx++) {
-          for (int dy = -1; dy <= 1; dy++) {
-            if (dx == 0 && dy == 0) {
-              continue;
-            }
-            int xx = x + dx;
-            int yy = y + dy;
-
-            if (xx >= 0 && xx < W && yy >= 0 && yy < H) {
-              if (S[yy][xx] == '#') {
-                num++;
-              }
-            }
+        int c = 0;
+        reps(dx, -1, 2) reps(dy, -1, 2) {
+          if (dx == 0 and dy == 0) continue;
+          int xx = x + dx;
+          int yy = y + dy;
+          if (0 <= xx and xx < W and 0 <= yy and yy < H) {
+            if (S[yy][xx] == '#') c++;
           }
         }
-        S[y][x] = char(num);
+        S[y][x] = char('0' + c);
       }
     }
   }
-  for (int i = 0; i < H; i++) {
-    cout << S[i] << endl;
-  }
+  rep(y, H) cout << S[y] << endl;
 }
