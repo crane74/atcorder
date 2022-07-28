@@ -31,6 +31,8 @@ int main() {
 
   bool big = false, small = false, diff = false, ans = false;
 
+  map<char, int> Diff;
+
   rep(i, S.size()) {
     if ('A' <= S[i] && S[i] <= 'Z') {
       big = true;
@@ -40,9 +42,8 @@ int main() {
       small = true;
     }
 
-    if (S[i] == S[i + 1]) {
-      diff = true;
-    }
+    Diff[S[i]]++;
+    if (Diff[S[i]] >= 2) diff = true;
   }
 
   if (small == true && big == true && diff == false) ans = true;
