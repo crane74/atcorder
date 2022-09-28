@@ -11,7 +11,7 @@ services:
       dockerfile: Dockerfile
 
     volumes:
-      - ./app/:/usr/src/app
+      - .:/usr/src/app
       - ~/.ssh:/root/.ssh:ro
       - ~/.gitconfig:/root/.gitconfig:ro
 
