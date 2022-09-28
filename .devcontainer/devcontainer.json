@@ -19,14 +19,16 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.cpptools-extension-pack",
-        "jeff-hykin.better-cpp-syntax",
-        "vincaslt.highlight-matching-tag",
-        "streetsidesoftware.code-spell-checker",
-        "oderwat.indent-rainbow",
-        "shardulm94.trailing-spaces",
-        "mosapride.zenkaku"
-      ]
+		"ms-vscode.cpptools-extension-pack",
+		"jeff-hykin.better-cpp-syntax",
+		"vincaslt.highlight-matching-tag",
+		"streetsidesoftware.code-spell-checker",
+		"oderwat.indent-rainbow",
+		"shardulm94.trailing-spaces",
+		"mosapride.zenkaku",
+		"donjayamanne.githistory",
+		"eamodio.gitlens"
+	]
     }
   }
 
